@@ -1,10 +1,8 @@
 from typing import Annotated
-
 from fastapi import APIRouter, Path
 
-router = APIRouter(
-    prefix='/items'
-)
+router = APIRouter(prefix="/items", tags=["Предметы"])
+
 
 @router.get("")
 async def list_items():
