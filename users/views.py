@@ -10,6 +10,6 @@ router = APIRouter(
 )
 
 
-@router.post("")
+@router.post("/")
 async def email_validator(user: CreateUser):
     return create_user(user_in=user)
