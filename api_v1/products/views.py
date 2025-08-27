@@ -62,11 +62,11 @@ async def update_product(
     path="/{product_id}/",
     response_model=Product,
 )
-async def update_product_partial(
+async def update_product_partial[P: Product](
     product_update: ProductUpdatePartial,
-    product: Product = Depends(product_by_id),
+    product: P = Depends(product_by_id),
     session: AsyncSession = Depends(db_helper.scoped_session_dependency),
-):
+)-> P:
 
     return await crud.update_product(
         session=session,
